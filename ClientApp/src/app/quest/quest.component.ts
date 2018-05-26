@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-quest',
-    templateUrl: './quest.component.html',
-    styleUrls: ['./quest.component.scss']
+    templateUrl: './quest.component.html'
 })
-export class NameComponent implements OnInit {
+export class QuestComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void { }
