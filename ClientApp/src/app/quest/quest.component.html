@@ -1,0 +1,24 @@
+<div *ngIf="!isEnd">
+    <h1>
+        Question № {{currenQuestionIndex+1}}:
+    </h1>
+    <p>
+        {{question.content}}
+    </p>
+
+    <form name="form" (ngSubmit)="f.form.valid && checkAnswer()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !answer.valid }">
+            <label for="user-answer">Your answer</label>
+            <input type="text" class="form-control" name="user-answer" [(ngModel)]="userAnswer" #answer="ngModel" required />
+            <div *ngIf="f.submitted && !answer.valid" class="help-block">You must enter the answer</div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enter</button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="isEnd">
+    <h1>You win!</h1>
+    <button class="btn btn-success" [routerLink]='["/results"]'>Show results</button>
+</div>

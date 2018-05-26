@@ -1,0 +1,22 @@
+<form name="form" (ngSubmit)="f.form.valid && createGroup()" #f="ngForm" novalidate>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+        <label for="group-name">Group name</label>
+        <input type="text" class="form-control" name="group-name" [(ngModel)]="group.name" #name="ngModel" required />
+        <div *ngIf="f.submitted && !name.valid" class="help-block">You must enter the name of new group</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="button" class="btn btn-primary" (click)="deleteGroup()" [disabled]="group.id == null">Remove</button>
+    </div>
+</form>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr *ngFor="let g of groups; let i = index" [ngClass]="{'class.success': g == group}" [style.cursor]="'pointer'">
+            <td (click)="selectGroup(g)">
+                {{i+1}}.{{g.name}}
+            </td>
+        </tr>
+    </table>
+</div>

@@ -7,7 +7,7 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>KSUQuest</a>
+            <a class='navbar-brand' [routerLink]='["/"]'>KSU Foreign Languages Quest</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
@@ -18,13 +18,13 @@
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
+                    <a [routerLink]='["/editor"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-education'></span> Editor
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    <a [routerLink]='["/group"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-th-list'></span> Groups
                     </a>
                 </li>
             </ul>

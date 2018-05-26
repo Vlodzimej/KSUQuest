@@ -1,0 +1,42 @@
+<form name="form" (ngSubmit)="f.form.valid && createQuestion()" #f="ngForm" novalidate>
+
+    <div class="form-group">
+        <label for="group-list">Group</label>
+        <select class="form-control" name="group-list" [(ngModel)]="selectedGroupId" (change)="getQuestions()">
+            <option *ngFor="let g of groups" [ngValue]="g.id">
+                {{g.name}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !content.valid }">
+        <label for="question-content">Question content </label>
+        <input type="text" class="form-control" name="question-content" [(ngModel)]="question.content" #content="ngModel" required
+        />
+        <div *ngIf="f.submitted && !content.valid" class="help-block">You must enter the content of question</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !answer.valid }">
+        <label for="question-answer">Answer </label>
+        <input type="text" class="form-control" name="question-answer" [(ngModel)]="question.answer" #answer="ngModel" required />
+        <div *ngIf="f.submitted && !answer.valid" class="help-block">You must enter the answer for question</div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="button" class="btn btn-primary" (click)="updateQuestion()" [disabled]="question.id == null">Update</button>
+        <button type="button" class="btn btn-primary" (click)="deleteQuestion()" [disabled]="question.id == null">Remove</button>
+
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr *ngFor="let q of questions; let i = index" [ngClass]="{'class.success': q.id == question.id}" [style.cursor]="'pointer'"
+            (click)="selectQuestion(q)">
+            <td>
+                {{i+1}}.{{q.content}}
+            </td>
+        </tr>
+    </table>
+</div>

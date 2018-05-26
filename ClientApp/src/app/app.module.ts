@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { QuestComponent } from './quest';
+import { GroupComponent } from './group';
+import { ApiService } from './services';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { QuestComponent } from './quest';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    QuestComponent
+    QuestComponent,
+    GroupComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,10 +33,12 @@ import { QuestComponent } from './quest';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'quest', component: QuestComponent }
+      { path: 'quest', component: QuestComponent },
+      { path: 'group', component: GroupComponent },
+      { path: 'editor', component: EditorComponent}
     ])
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
