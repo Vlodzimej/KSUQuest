@@ -13,6 +13,7 @@ import { QuestComponent } from './quest';
 import { GroupComponent } from './group';
 import { ApiService } from './services';
 import { EditorComponent } from './editor/editor.component';
+import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EditorComponent } from './editor/editor.component';
     FetchDataComponent,
     QuestComponent,
     GroupComponent,
-    EditorComponent
+    EditorComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +37,8 @@ import { EditorComponent } from './editor/editor.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'quest', component: QuestComponent },
       { path: 'group', component: GroupComponent },
-      { path: 'editor', component: EditorComponent}
+      { path: 'editor', component: EditorComponent},
+      { path: 'manager', component: ManagerComponent }
     ])
   ],
   providers: [ApiService],

@@ -60,12 +60,16 @@ export class GroupComponent implements OnInit {
     }
 
     checkGroupName() {
-        var group = this.groups.find(g => g.name == this.group.name);
-        if (typeof group === 'undefined') {
-            console.log(`Group isn't exist`);
+        if (typeof this.groups !== 'undefined') {
+            var group = this.groups.find(g => g.name == this.group.name);
+            if (typeof group === 'undefined') {
+                console.log(`Group isn't exist`);
+                return false;
+            }
+            console.log(`Group is finded`);
+            return true;
+        } else {
             return false;
         }
-        console.log(`Group is finded`);
-        return true;
     }
 }

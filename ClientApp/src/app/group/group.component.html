@@ -1,3 +1,5 @@
+<h1>Groups</h1>
+
 <form name="form" (ngSubmit)="f.form.valid && createGroup()" #f="ngForm" novalidate>
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
         <label for="group-name">Group name</label>

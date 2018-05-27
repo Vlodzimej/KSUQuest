@@ -78,5 +78,14 @@ export class EditorComponent implements OnInit {
         }
     }
 
-
+    createDatabase(){
+        this.apiService.create('system/database', {}).subscribe(
+            data => {
+                console.log(data);
+            }, 
+            error => {
+                console.log(error);
+            }
+        );
+    }
 }

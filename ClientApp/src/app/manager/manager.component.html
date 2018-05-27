@@ -1,0 +1,21 @@
+<form name="form" (ngSubmit)="f.form.valid && show()" #f="ngForm" novalidate *ngIf="!isManager">
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label for="manage-pass">Password</label>
+        <input type="password" class="form-control" name="manage-pass" [(ngModel)]="managerPassword" #password="ngModel" required />
+        <div *ngIf="f.submitted && !password.valid" class="help-block">You must enter the password</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Ok</button>
+    </div>
+</form>
+
+<div *ngIf="isManager">
+    <h1>Manage Panel</h1>
+<button class="btn btn-block btn-default" [routerLink]='["/editor"]'>
+    <span class='glyphicon glyphicon-education'></span> Editor 
+</button>
+
+<button class="btn btn-block btn-default" [routerLink]='["/group"]'>
+    <span class='glyphicon glyphicon-th-list'></span> Groups
+</button>
+</div>
